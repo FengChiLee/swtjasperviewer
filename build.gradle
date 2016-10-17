@@ -1,0 +1,62 @@
+
+apply plugin: 'eclipse'
+
+// Apply the java plugin to add support for Java
+apply plugin: 'java'
+
+// Import an Ant build
+ant.importBuild 'build.xml'
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    // Use 'jcenter' for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+}
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.5'
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2.+'
+    compile group: 'commons-digester', name: 'commons-digester', version: '1.7'
+    compile group: 'commons-logging', name: 'commons-logging', version: '1.1.1'
+    
+    compile 'itext:itext:2.+'
+    
+    // TODO itextasian-1.5.2.jar
+    
+    compile 'net.sf.jasperreports:jasperreports:5.6.+'
+    compile 'net.sf.jasperreports:jasperreports-fonts:5.6.+'
+    
+    compile 'org.apache.poi:poi:3.+'
+    
+    // jface.jar
+    compile 'eclipse:eclipse-jface:2.1.+'
+    
+    // osgi.jar
+    compile 'org.eclipse:osgi:3.+'
+    
+    // runtim.jar
+    compile 'org.eclipse.core:runtime:3.+'
+        
+    // jcommon-1.0.0.jar
+    compile 'jfree:jcommon:1.0.+'
+    
+    // jfreechart-1.0.0.jar
+    compile 'jfree:jfreechart:1.+'
+        
+    // SWT
+    compile 'org.eclipse.swt:org.eclipse.swt.win32.win32.x86_64:4.+'
+    
+    // ---------    
+
+    // The production code uses the SLF4J logging API at compile time
+    // compile 'org.slf4j:slf4j-api:1.7.21'
+
+    // Declare the dependency for your favourite test framework you want to use in your tests.
+    // TestNG is also supported by the Gradle Test task. Just change the
+    // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
+    // 'test.useTestNG()' to your build script.
+    // testCompile 'junit:junit:4.12'
+}
